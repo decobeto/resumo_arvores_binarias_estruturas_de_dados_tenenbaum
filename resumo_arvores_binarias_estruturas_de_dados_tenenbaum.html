@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>resumo_arvores_binarias_estruturas_de_dados_tenenbaum</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h4 id="universidade-do-oeste-de-santa-catarina---unoesc">Universidade do Oeste de Santa Catarina - UNOESC</h4>
+<h4 id="acadêmico-andré-roberto-alves-de-oliveira">Acadêmico: André Roberto Alves de Oliveira</h4>
+<h2 id="resumo-árvores-binárias-estruturas-de-dados-usando-c---tenenbaum">Resumo Árvores binárias/ Estruturas de Dados usando C - Tenenbaum</h2>
+<h2 id="árvores-binárias">Árvores Binárias</h2>
+<p>Uma árvore binária é um conjunto definido de elementos que está vazio ou é particionado em três subconjuntos disjuntos, ou seja, o primeiro conjunto é chamado de raiz, o ponto inicial da árvore. Os outros são as árvores binárias, sendo a sub árvore da esquerda e a sub árvore da direita, sendo ambas relacionadas e continuações da raiz. Cada elemento de uma árvore binária é chamada de nó.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/200px-Binary_tree.svg.png" alt="Resultado de imagem para árvore binária"><br>
+Quando um nó de uma árvore binária não possui continuação, sendo esse npo sem filhos o mesmo é chamado de folha.</p>
+<p>Embora as árvores naturais cresçam com suas raízes fincadas a terra e voltadas para o chão dentro de meios da ciência da computação as árvores são representadas quase que universalmente com a raiz no topo e seus nós e folhas voltados para baixo, como se estivessem fincados a terra. Quando se percorre uma árvore a partir de suas folhas se está “subindo” e se for a partir da raiz se está “descendo” a árvore.</p>
+<p>Quando um nó, que não é uma folha, de uma árvore binária tiver sub árvores esquerdas e direitas não vazias, a árvore é considerada árvore estritamente binária. Uma árvore estritamente binária com n folhas é definida através da equação 2n - 1 nós.<br>
+<img src="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados1516/problemas/137.png" alt=""><br>
+O nível de um nó em uma árvore binária é definido como a raiz tem o nível 0 e a cada nó adicionado o mesmo tem um nível a mais que seu nó/raiz pai. Caso o número de nós (tn) for conhecido em uma árvore binária, é possível calcular sua profundidade (d) através da seguinte equação tn = 2d+1 - 1.d.</p>
+<p>Os nós de uma árvore binária quase completa podem ser numerados de modo, que o o número a ser atribuído à raiz é 1, um filho esquerdo (nó) receba um número o qual seu valor seja o dobro do valor do pai, e o filho direito (nó) receba a atribuição de um número equivalente a mais que o dobro do valor do pai. Cada nó de uma árvore binária quase completa recebe a atribuição de um número exclusivo, sendo esse um número exclusivo que define sua posição dentro da árvore.</p>
+<p><img src="http://videos.web-03.net/artigos/Higor_Medeiros/ArvoreBinaria/ArvoreBinaria1.jpg" alt="Resultado de imagem para árvore binária quase completa"><br>
+A linguagem de programação C possui algumas funções primitivas quue permitem serem aplicadas a uma árvore binária, sendo possível acessar ponteiros e navegar pela árvore utilizando essas funções.</p>
+<h3 id="aplicações-de-árvores-binárias">Aplicações de árvores binárias:</h3>
+<p>A árvore binária é uma estrutura de dados muito útil quando é preciso tomar decisões bidirecionais em cada ponto de um processo.</p>
+<h4 id="exemplo">Exemplo:</h4>
+<p>Caso seja necessário comparar uma grande quantidade de números, como uma lista, é possível fazer isso ao se comparar cada número com o seu sucessor porém para executar tal tarefa é necessário um grande número de comparações. Podemos reduzir tal número ao se utilizar de uma árvore binária. Cada número da lista é comparado com a raiz e assim conseguiremos separá-los. Sendo que os números menores que o da raiz serão mandados para a esquerda e os maiores para a direita, e caso haja coincidência entre o número da raiz e o comparado haverá uma repetição.</p>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> arvore <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">insert</span><span class="token punctuation">(</span>tree<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>tree<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>value <span class="token operator">&gt;</span> tree<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">insert</span><span class="token punctuation">(</span>tree<span class="token punctuation">.</span>right<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      <span class="token function">insert</span><span class="token punctuation">(</span>tree<span class="token punctuation">.</span>left<span class="token punctuation">,</span> value<span class="token punctuation">)</span> 
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    tree<span class="token punctuation">.</span>value <span class="token operator">=</span> value
+    tree<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    tree<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> 
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token function">insert</span><span class="token punctuation">(</span>arvore<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arvore<span class="token punctuation">)</span>
+</code></pre>
+<p>Uma forma comum de se acessar as informações de uma árvore é enumerando cada um de seus nós, além de se utilizar de ponteiros, porém a forma como os números são dispostos é diferente, já que não existem uma ordem natural para os nós de uma árvore. Sendo assim são utilizados diferentes ordenamentos de percurso em diferentes casos.</p>
+<hr>
+<p>Para se percorrer uma árvore não vazia em pré-ordem:</p>
+<ol>
+<li>Visitamos a raiz.</li>
+<li>Percorremos a sub árvore esquerda em ordem prévia.</li>
+<li>Percorremos a sub árvore direita em ordem prévia.</li>
+</ol>
+<hr>
+<p>Para se percorrer uma árvore não vazia em ordem:</p>
+<ol>
+<li>Percorremos a sub árvore esquerda em ordem simétrica.</li>
+<li>Visitamos a raiz.</li>
+<li>Percorremos a sub árvore direita em ordem simétrica.</li>
+</ol>
+<hr>
+<p>Para se percorrer uma árvore binária em pós-ordem:</p>
+<ol>
+<li>Percorremos a sub árvore esquerda em ordem posterior.</li>
+<li>Percorremos a sub árvore direita em ordem posterior.</li>
+<li>Visitamos a raiz.</li>
+</ol>
+<hr>
+<p>O “Modus operandi” da maioria dos algoritmos que usam árvores binárias funcionam em duas etapas. A primeira é responsável por construir a árvore, a segunda é responsabilizada por percorrer a árvore.</p>
+<p>Uma árvore binária que tem a propriedade de todos os elementos serem maiores na sub árvore esquerda de um nó e os elementos da sub árvore direita serem maiores ou iguais, geralmente são chamadas de árvore de busca binária, se uma árvore de busca binária é percorrida em ordem simétrica( esquerda, raiz, direita) e o conteúdo de cada nó for impresso a medida que o nó é visitado, os números serão impressos em ordem ascendente.</p>
+<p>A representação implícita em vetores de árvores binárias, permite que uma árvore seja implementada num bloco contíguo de memória, um vetor, e não por meio de ponteiros conectando os nós de forma separada. Sob a representação sequencial, um elemento do vetor é alocado quer sirva quer não, para conter um nó de uma árvore.</p>
+<h3 id="escolhendo-uma-representação-de-uma-árvore-binária">Escolhendo uma representação de uma árvore binária</h3>
+<p>Assim como todas as formas de desenvolvimentos dependem de determinados fatores e a necessidade do que seja construido, a representação de uma árvore também depende, é uma pergunta genérica e não existe uma resposta para a mesma. A representação sequencial é um pouco mais simples, embora seja necessário verificar se todos os ponteiros estão dentro do limites do vetor, dependendo da linguagem. Evidentemente, a representação sequencial economiza espaço de armazenamento nas árvores, principalmente nas quase completas, uma vez que se elimina a necessidade dos campos left, right e father, isso na linguagem de programação C. Existe também a representação ligada que exige os campos e permite um uso muito mais flexível do conjunto de nós.</p>
+<h3 id="percurso-de-árvores-binárias-em-c">Percurso de árvores binárias em C</h3>
+<p>Dentro da linguagem de programação C, é possível implementar o percurso de árvores binárias em c por meio de rotinas recursivas que assim refletem o percurso. Sendo essas rotinas pretav, intav e posttrav, as quais imprimem o conteúdo de uma árvore binária. As rotinas de percurso originam-se diretamente das definições dos métodos de percurso, sendo assim, em termos de filhos da esquerda e da direita de um nó não serão referidos ao pai, permitindo desenvolver algoritmos de percurso não recursivo sem usar uma pilha.</p>
+<h3 id="árvores-binárias-encadeadas">Árvores binárias encadeadas</h3>
+<p>Percorrer uma árvore binária é uma operação comum e seria útil encontrar um método mais eficiente para implementar o percurso. E geralmente sua aplicação necessita de uma pilha. Em uma árvore binária encadeada à direita, o sucessor em ordem de qualquer nó pode ser encontrado com eficiência. Sendo essa árvore formada de maneira simples. Uma árvore binária encadeada à esquerda pode ser definida de modo semelhante, na qual cada ponteiro esquerda é alterado para conter uma linha para o predecessor em ordem desse nó.</p>
+<p>Uma árvore binária encadeada pode ser definida como uma árvore binária encadeada da esquerda tanto quanto para à direita, porém o encadeamento de um dos lados não gera vantagem para o outro.</p>
+<p>Podemos assim definir árvores binárias pré encadeadas como a direita e a esquerda nas quais os ponteiros nulos de ambas são trocados por seus sucessores e predecessores em pré ordem respectivamente. Uma arvore pré encadeada a direita pode ser percorrida com eficiência em pré ordem sem o uso de uma pilha.</p>
+<h3 id="o-campo-father">O campo Father</h3>
+<p>Em C é possível se utilizar dessa função para representar o nó pai de cada nó presente na árvore, sua utilização permite a não utilização de pilhas nem linhas para a criação de percurso não recursivo.</p>
+</div>
+</body>
+
+</html>
